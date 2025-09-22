@@ -15,3 +15,6 @@ spring:
               uri: lb://user-service
               predicates:
                 - Path=/user/**
+                
+server:
+  port: 8989
