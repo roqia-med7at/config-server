@@ -3,7 +3,7 @@ jwt:
   public-key-path: classpath:keys/public-key.pem
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/drive_demo
+    url: jdbc:postgresql://localhost:5432/auth
     username: postgres
     password: 1111
     driver-class-name: org.postgresql.Driver
