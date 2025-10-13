@@ -8,21 +8,21 @@ spring:
         - id: order-service
           uri: lb://order-service
           predicates:
-            - Path=/order/**
+            - Path=/api/order/**
           filters:
             - AuthenticationFilter
 
         - id: user-service
           uri: lb://user-service
           predicates:
-            - Path=/user/**
+            - Path=/api/user/**
           filters:
             - AuthenticationFilter  
 
         - id: auth-service
           uri: lb://auth-service
           predicates:
-            - Path=/auth/**
+            - Path=/api/auth/**
           filters:
             - AuthenticationFilter     
                 
