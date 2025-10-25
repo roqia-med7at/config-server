@@ -4,29 +4,27 @@ spring:
 
   cloud:
     gateway:
-      server:
-        webflux:
-          routes:
-            - id: order-service
-              uri: lb://order-service
-              predicates:
-                - Path=/api/order/**
-              filters:
-                - AuthenticationFilter
+      routes:
+        - id: order-service
+          uri: lb://order-service
+          predicates:
+            - Path=/api/order/**
+          filters:
+            - name: AuthenticationFilter
 
-            - id: user-service
-              uri: lb://user-service
-              predicates:
-                - Path=/api/user/**
-              filters:
-                - AuthenticationFilter  
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/api/user/**
+          filters:
+            - name: AuthenticationFilter
 
-            - id: auth-service
-              uri: lb://auth-service
-              predicates:
-                - Path=/api/auth/**
-              filters:
-                - AuthenticationFilter     
+        - id: auth-service
+          uri: lb://auth-service
+          predicates:
+            - Path=/api/auth/**
+          filters:
+            - name: AuthenticationFilter
 
 server:
   port: 8989
