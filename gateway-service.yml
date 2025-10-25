@@ -11,22 +11,16 @@ spring:
               uri: lb://order-service
               predicates:
                 - Path=/api/order/**
-              filters:
-                - name: AuthenticationGatewayFilter
 
             - id: user-service
               uri: lb://user-service
               predicates:
                 - Path=/api/user/**
-              filters:
-                - name: AuthenticationGatewayFilter
-
+        
             - id: auth-service
               uri: lb://auth-service
               predicates:
                 - Path=/api/auth/**
-              filters:
-                - name: AuthenticationGatewayFilter
 
 server:
   port: 8989
