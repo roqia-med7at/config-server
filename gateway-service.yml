@@ -12,21 +12,21 @@ spring:
               predicates:
                 - Path=/api/order/**
               filters:
-                - name: Authentication   # لاحظ الاسم هنا يطابق اسم الفلتر بدون "GatewayFilter"
+                - name: AuthenticationGatewayFilter
 
             - id: user-service
               uri: lb://user-service
               predicates:
                 - Path=/api/user/**
               filters:
-                - name: Authentication
+                - name: AuthenticationGatewayFilter
 
             - id: auth-service
               uri: lb://auth-service
               predicates:
                 - Path=/api/auth/**
               filters:
-                - name: Authentication
+                - name: AuthenticationGatewayFilter
 
 server:
   port: 8989
